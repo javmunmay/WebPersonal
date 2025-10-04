@@ -1,104 +1,874 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content />
-    <meta name="author" content />
-    <title>Contacto - Javier Muñoz Mayorga</title>
+    <meta name="description" content="Contacta con Javier Muñoz Mayorga - Desarrollador Web y Especialista en Automatización con IA" />
+    <meta name="author" content="Javier Muñoz Mayorga" />
+    <title>Contacto - Javier Muñoz Mayorga | Desarrollador Web & Especialista en IA</title>
+    
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
     <!-- Custom Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
     <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Core theme CSS -->
     <link href="css/styles.css" rel="stylesheet" />
+    
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA CONTACTO - VERSIÓN FUTURISTA ===== */
+.contact-section {
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #15152b 100%);
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(0, 243, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(123, 97, 255, 0.1) 0%, transparent 50%),
+        linear-gradient(90deg, transparent 98%, rgba(0, 243, 255, 0.02) 100%);
+    background-size: 60px 60px;
+    animation: scan 6s linear infinite;
+}
+
+.contact-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05) 0%, transparent 60%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px);
+    border-radius: var(--border-radius-lg);
+    padding: 3.5rem 3rem;
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 0 1px rgba(0, 243, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-neon);
+    z-index: 3;
+    box-shadow: 0 0 20px var(--primary);
+}
+
+.contact-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.08), transparent);
+    transition: var(--transition-slow);
+    z-index: 1;
+}
+
+.contact-card:hover::after {
+    left: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        var(--shadow-2xl),
+        0 0 40px rgba(0, 243, 255, 0.25),
+        0 0 0 1px rgba(0, 243, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 243, 255, 0.5);
+}
+
+.contact-icon {
+    font-size: 4rem;
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    display: inline-block;
+    transition: var(--transition);
+    filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.3));
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.15) rotate(5deg);
+    filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.5));
+}
+
+/* ===== DISEÑO RESPONSIVE PARA TABLA FUTURISTA ===== */
+.contact-info-grid {
+    display: grid;
+    gap: 1.75rem;
+    margin: 3rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    transition: var(--transition-slow);
+}
+
+.contact-item:hover::before {
+    left: 100%;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 243, 255, 0.4);
+    transform: translateX(12px);
+    box-shadow: 
+        var(--shadow-lg),
+        0 10px 25px rgba(0, 243, 255, 0.15);
+}
+
+.contact-item-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-tech);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--darker);
+    font-size: 1.5rem;
+    transition: var(--transition);
+    box-shadow: 0 0 20px rgba(123, 97, 255, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.contact-item:hover .contact-item-icon {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 0 30px rgba(123, 97, 255, 0.6);
+}
+
+.contact-item-content {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-item-label {
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    display: block;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.contact-item-value {
+    color: var(--gray-light);
+    margin-bottom: 0;
+    word-break: break-word;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.contact-link {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    padding: 0.4rem 0;
+    position: relative;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.contact-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-neon);
+    transition: var(--transition);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.contact-link:hover {
+    color: var(--primary-light);
+    transform: translateX(5px);
+}
+
+.contact-link:hover::after {
+    width: 100%;
+}
+
+.contact-link i {
+    font-size: 0.9em;
+    transition: var(--transition);
+}
+
+.contact-link:hover i {
+    transform: translateX(3px) scale(1.2);
+}
+
+.availability-badge {
+    background: var(--gradient-neon);
+    color: var(--darker);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.availability-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: var(--transition-slow);
+}
+
+.availability-badge:hover::before {
+    left: 100%;
+}
+
+.availability-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 0 30px rgba(0, 243, 255, 0.6),
+        0 0 50px rgba(123, 97, 255, 0.4);
+}
+
+/* ===== EFECTOS DE COMUNICACIÓN FUTURISTA ===== */
+.contact-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-particle {
+    position: absolute;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    animation: contactFloat 12s ease-in-out infinite;
+    opacity: 0.4;
+}
+
+@keyframes contactFloat {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.3;
+    }
+    33% {
+        transform: translateY(-25px) translateX(15px) scale(1.1);
+        opacity: 0.5;
+    }
+    66% {
+        transform: translateY(10px) translateX(-10px) scale(0.9);
+        opacity: 0.4;
+    }
+}
+
+/* ===== INDICADOR DE ESTADO EN TIEMPO REAL ===== */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-left: 1rem;
+    position: relative;
+}
+
+.status-indicator::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: statusPulse 2s infinite;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+/* ===== MEJORAS RESPONSIVE ESPECÍFICAS ===== */
+
+/* Tablets y dispositivos medianos */
+@media (max-width: 992px) {
+    .contact-section {
+        padding: 5rem 0 3rem;
+    }
+    
+    .contact-card {
+        padding: 3rem 2.5rem;
+        margin: 0 1rem;
+    }
+    
+    .contact-info-grid {
+        gap: 1.5rem;
+        margin: 2.5rem 0;
+    }
+    
+    .contact-item {
+        padding: 1.75rem;
+        gap: 1.5rem;
+    }
+    
+    .contact-item-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4rem;
+    }
+}
+
+/* Móviles grandes */
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 4.5rem 0 2.5rem;
+        min-height: calc(100vh - 140px);
+    }
+    
+    .contact-card {
+        padding: 2.5rem 2rem;
+        margin: 0 0.5rem;
+    }
+    
+    .contact-icon {
+        font-size: 3.5rem;
+    }
+    
+    .contact-info-grid {
+        gap: 1.25rem;
+        margin: 2rem 0;
+    }
+    
+    .contact-item {
+        padding: 1.5rem;
+        gap: 1.25rem;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .contact-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .contact-item-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .contact-item-content {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 2.2rem !important;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    .status-indicator {
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 576px) {
+    .contact-section {
+        padding: 4rem 0 2rem;
+    }
+    
+    .contact-card {
+        padding: 2rem 1.5rem;
+        margin: 0 0.25rem;
+        border-radius: var(--border-radius);
+    }
+    
+    .contact-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-info-grid {
+        gap: 1rem;
+        margin: 1.75rem 0;
+    }
+    
+    .contact-item {
+        padding: 1.25rem 1rem;
+        gap: 1rem;
+    }
+    
+    .contact-item-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .contact-item-label {
+        font-size: 0.95rem;
+    }
+    
+    .contact-item-value {
+        font-size: 1rem;
+    }
+    
+    .contact-link {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem !important;
+        margin-bottom: 0.75rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 2.5rem;
+    }
+    
+    .availability-badge {
+        padding: 0.7rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 400px) {
+    .contact-card {
+        padding: 1.75rem 1.25rem;
+    }
+    
+    .contact-item {
+        padding: 1.125rem 0.875rem;
+    }
+    
+    .contact-item-label {
+        font-size: 0.9rem;
+    }
+    
+    .contact-item-value {
+        font-size: 0.95rem;
+    }
+    
+    .contact-link {
+        font-size: 0.95rem;
+    }
+    
+    .availability-badge {
+        padding: 0.6rem 1.125rem;
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .contact-item-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Orientación landscape en móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .contact-section {
+        padding: 5rem 0 2rem;
+        min-height: auto;
+    }
+    
+    .contact-card {
+        margin: 1rem 0;
+    }
+    
+    .contact-info-grid {
+        margin: 1.5rem 0;
+    }
+    
+    .contact-item {
+        padding: 1.25rem;
+    }
+    
+    .contact-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* Mejoras para tablets en landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .contact-section {
+        padding: 4rem 0 2rem;
+    }
+    
+    .contact-card {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    
+    .contact-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .contact-card,
+    .contact-item,
+    .contact-link,
+    .contact-icon,
+    .contact-item-icon,
+    .availability-badge,
+    .status-indicator {
+        transition: none;
+        animation: none;
+    }
+    
+    .contact-card:hover,
+    .contact-item:hover {
+        transform: none;
+    }
+    
+    .contact-section::before {
+        animation: none;
+    }
+}
+
+/* Mejora de contraste para baja visión */
+@media (prefers-contrast: high) {
+    .contact-card {
+        border: 2px solid var(--primary);
+        background: rgba(10, 10, 26, 0.95);
+    }
+    
+    .contact-item {
+        border: 2px solid var(--primary);
+        background: rgba(15, 23, 42, 0.9);
+    }
+    
+    .contact-link {
+        text-decoration: underline;
+    }
+    
+    .contact-icon {
+        -webkit-text-fill-color: var(--primary);
+    }
+}
+    </style>
 </head>
 <body class="d-flex flex-column">
     <main class="flex-shrink-0">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-            <div class="container px-5">
-                <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Contacto - Javier Muñoz Mayorga</span></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand fw-bolder" href="index.html">Javier Muñoz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
                         <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="resume.html">Educación y certificados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="resume.html">Educación</a></li>
                         <li class="nav-item"><a class="nav-link" href="projects.html">Proyectos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.html">Contacto</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Page content-->
-        <section class="py-5">
-            <div class="container px-5">
-                <!-- Contact info section -->
-                <div class="bg-light rounded-4 py-5 px-4 px-md-5">
-                    <div class="text-center mb-5">
-                        <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                        <h1 class="fw-bolder">Mis Datos de Contacto</h1>
-                        <p class="lead fw-normal text-muted mb-0">A continuación se muestran varias formas para poder contactarme:</p>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6">
-                            <!-- Contact information displayed as a table -->
-                            <table class="table table-borderless">
-                                <div class="container">
-                                    <tbody>
-                                        <tr>
-                                            
-                                            <td><strong>Correo Electrónico:</strong></td>
-                                            <td>javiermunozmayorga@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Teléfono:</strong></td>
-                                            <td>(+34) 601177619</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>LinkedIn:</strong></td>
-                                            <td><a href="https://www.linkedin.com/in/javiermunozmayorga/" target="_blank">https://www.linkedin.com/in/javiermunozmayorga/</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Github:</strong></td>
-                                            <td><a href="https://github.com/javmunmay" target="_blank">https://github.com/javmunmay</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Trabajo:</strong></td>
-                                            <td>(Flexibilidad
-                                                remoto o presencial)</td>
-                                        </tr>
-                                    </tbody>
+        
+        <!-- Contact Section-->
+        <section class="contact-section">
+            <div class="container px-3 px-lg-4">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-10 col-xl-8">
+                        <div class="contact-card">
+                            <div class="text-center mb-4 mb-md-5">
+                                <div class="contact-icon">
+                                    <i class="bi bi-envelope-fill"></i>
                                 </div>
-                            </table>
+                                <h1 class="fw-bolder section-title mb-3">Contacta Conmigo</h1>
+                                <p class="section-subtitle mb-0">Estoy disponible para nuevos proyectos y colaboraciones</p>
+                            </div>
+                            
+                            <div class="contact-info">
+                                <div class="contact-info-grid">
+                                    <!-- Email -->
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="bi bi-envelope"></i>
+                                        </div>
+                                        <div class="contact-item-content">
+                                            <span class="contact-item-label">Correo Electrónico</span>
+                                            <p class="contact-item-value">
+                                                <a href="mailto:javiermunozmayorga@gmail.com" class="contact-link">
+                                                    javiermunozmayorga@gmail.com
+                                                    <i class="bi bi-arrow-up-right"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Teléfono -->
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="bi bi-telephone"></i>
+                                        </div>
+                                        <div class="contact-item-content">
+                                            <span class="contact-item-label">Teléfono</span>
+                                            <p class="contact-item-value">
+                                                <a href="tel:+34601177619" class="contact-link">
+                                                    (+34) 601 177 619
+                                                    <i class="bi bi-arrow-up-right"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- LinkedIn -->
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="bi bi-linkedin"></i>
+                                        </div>
+                                        <div class="contact-item-content">
+                                            <span class="contact-item-label">LinkedIn</span>
+                                            <p class="contact-item-value">
+                                                <a href="https://www.linkedin.com/in/javiermunozmayorga/" target="_blank" class="contact-link">
+                                                    Mi perfil profesional
+                                                    <i class="bi bi-box-arrow-up-right"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- GitHub -->
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="bi bi-github"></i>
+                                        </div>
+                                        <div class="contact-item-content">
+                                            <span class="contact-item-label">GitHub</span>
+                                            <p class="contact-item-value">
+                                                <a href="https://github.com/javmunmay" target="_blank" class="contact-link">
+                                                    Mis proyectos de código
+                                                    <i class="bi bi-box-arrow-up-right"></i>
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Disponibilidad -->
+                                    <div class="contact-item">
+                                        <div class="contact-item-icon">
+                                            <i class="bi bi-briefcase"></i>
+                                        </div>
+                                        <div class="contact-item-content">
+                                            <span class="contact-item-label">Disponibilidad</span>
+                                            <p class="contact-item-value">
+                                                <span class="availability-badge">
+                                                    <i class="bi bi-check-circle"></i>
+                                                    Flexible (remoto/presencial)
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4 mt-md-5 pt-3 border-top">
+                                <p class="text-muted mb-3">¿Tienes un proyecto en mente? No dudes en contactarme</p>
+                                <div class="social-links justify-content-center">
+                                    <a class="social-link" href="https://www.linkedin.com/in/javiermunozmayorga/" aria-label="LinkedIn" target="_blank">
+                                        <i class="bi bi-linkedin"></i>
+                                    </a>
+                                    <a class="social-link" href="https://github.com/javmunmay" aria-label="GitHub" target="_blank">
+                                        <i class="bi bi-github"></i>
+                                    </a>
+                                    <a class="social-link" href="https://www.tiktok.com/@estudianteprogramador" aria-label="TikTok" target="_blank">
+                                        <i class="bi bi-tiktok"></i>
+                                    </a>
+                                    <a class="social-link" href="mailto:javiermunozmayorga@gmail.com" aria-label="Email">
+                                        <i class="bi bi-envelope-fill"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+    
     <!-- Footer-->
-    <footer class="bg-white py-4 mt-auto">
-        <div class="container px-5">
+    <footer class="footer mt-auto">
+        <div class="container px-4 px-lg-5">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0">Copyright &copy; www.javiermunozmayorga.com 2025</div></div>
                 <div class="col-auto">
-                    <a class="small" href="#!">Política de privacidad</a>
-                    <span class="mx-1">&middot;</span>
-                    <a class="small" href="#!">Términos y condiciones</a>
-                    <span class="mx-1">&middot;</span>
-                    <a class="small" href="#!">Contactar</a>
+                    <div class="small m-0">Copyright &copy; Javier Muñoz Mayorga 2025</div>
+                </div>
+                <div class="col-auto">
+                    <div class="footer-links">
+                        <a class="small text-decoration-none" href="#!">Política de Privacidad</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small text-decoration-none" href="#!">Términos</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small text-decoration-none" href="contact.html">Contactar</a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+    
     <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom scripts -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Mejora de accesibilidad para enlaces
+        document.querySelectorAll('.contact-link').forEach(link => {
+            link.setAttribute('aria-label', `Enlace a ${link.textContent.trim()}`);
+        });
+
+        // Optimización para móviles - prevenir zoom en inputs
+        document.addEventListener('touchstart', function() {}, {passive: true});
+    </script>
 </body>
 </html>

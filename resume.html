@@ -1,178 +1,835 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Educación y certificados | Javier Muñoz Mayorga</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Educación y certificados | Javier Muñoz Mayorga</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Educación y certificados</a></li>
-                            <li class="nav-item"><a class="nav-link" href="projects.html">Proyectos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
-                        </ul>
-                    </div>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description"
+        content="Educación y certificados de Javier Muñoz Mayorga - Desarrollador Web y Especialista en Automatización con IA" />
+    <meta name="author" content="Javier Muñoz Mayorga" />
+    <title>Educación y Certificados | Javier Muñoz Mayorga</title>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Core theme CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA EDUCACIÓN - VERSIÓN FUTURISTA ===== */
+        .education-section {
+            padding: 6rem 0 4rem;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #15152b 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(0, 243, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(123, 97, 255, 0.08) 0%, transparent 40%),
+                linear-gradient(90deg, transparent 98%, rgba(0, 243, 255, 0.03) 100%);
+            background-size: 60px 60px;
+            animation: scan 6s linear infinite;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header .section-title {
+            color: var(--primary-light);
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .page-header .section-subtitle {
+            color: var(--gray-light);
+            opacity: 0.9;
+        }
+
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius-lg);
+            padding: 2.5rem;
+            box-shadow:
+                var(--shadow-lg),
+                0 0 0 1px rgba(0, 243, 255, 0.1);
+            border: 1px solid rgba(0, 243, 255, 0.15);
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .timeline-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-neon);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .timeline-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+            transition: var(--transition-slow);
+        }
+
+        .timeline-card:hover::after {
+            left: 100%;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                var(--shadow-xl),
+                0 0 30px rgba(0, 243, 255, 0.2),
+                0 0 0 1px rgba(0, 243, 255, 0.3);
+            border-color: rgba(0, 243, 255, 0.4);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .timeline-date {
+            background: var(--gradient-neon);
+            color: var(--darker);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-light);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+        }
+
+        .timeline-content h4 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .timeline-content p {
+            color: var(--gray-light);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-tech);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 243, 255, 0.3);
+            transform: translateY(-8px);
+            box-shadow:
+                var(--shadow-lg),
+                0 10px 30px rgba(0, 243, 255, 0.15);
+        }
+
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-tech);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--darker);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(123, 97, 255, 0.4);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover .skill-category-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 30px rgba(123, 97, 255, 0.6);
+        }
+
+        .skill-category-header h4 {
+            color: var(--primary-light);
+            font-size: 1.3rem;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 243, 255, 0.1);
+            color: var(--primary-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition-slow);
+        }
+
+        .skill-tag:hover::before {
+            left: 100%;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 243, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .download-btn {
+            background: var(--gradient-neon);
+            color: var(--darker);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-neon);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: var(--transition-slow);
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 0 30px rgba(0, 243, 255, 0.6),
+                0 0 60px rgba(123, 97, 255, 0.4);
+            color: var(--darker);
+        }
+
+        /* ===== EFECTO DE PARTÍCULAS PARA EDUCACIÓN ===== */
+        .education-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .education-particle {
+            position: absolute;
+            background: var(--gradient-tech);
+            border-radius: 50%;
+            animation: floatParticle 8s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes floatParticle {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+
+            33% {
+                transform: translateY(-30px) translateX(10px) rotate(120deg);
+                opacity: 0.6;
+            }
+
+            66% {
+                transform: translateY(15px) translateX(-15px) rotate(240deg);
+                opacity: 0.4;
+            }
+        }
+
+        /* ===== CERTIFICACIONES Y BADGES ===== */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .certification-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: var(--border-radius-lg);
+            padding: 2rem;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .certification-card:hover::before {
+            opacity: 1;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 243, 255, 0.3);
+            box-shadow:
+                var(--shadow-lg),
+                0 10px 30px rgba(0, 243, 255, 0.15);
+        }
+
+        .certification-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .certification-card h4 {
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .certification-card p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* ===== MEJORAS RESPONSIVE ESPECÍFICAS ===== */
+
+        /* Tablets y dispositivos medianos */
+        @media (max-width: 992px) {
+            .education-section {
+                padding: 5rem 0 3rem;
+            }
+
+            .timeline-card {
+                padding: 2rem 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .timeline-date {
+                align-self: flex-start;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Móviles grandes */
+        @media (max-width: 768px) {
+            .education-section {
+                padding: 4.5rem 0 2.5rem;
+            }
+
+            .page-header {
+                margin-bottom: 3rem;
+                padding-top: 1rem;
+            }
+
+            .timeline-card {
+                padding: 1.5rem;
+                margin: 0 0.5rem 1.5rem;
+                border-radius: var(--border-radius);
+            }
+
+            .skill-category {
+                padding: 1.5rem;
+            }
+
+            .skill-category-header {
+                gap: 1rem;
+            }
+
+            .skill-category-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem !important;
+            }
+
+            .certification-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Móviles pequeños */
+        @media (max-width: 576px) {
+            .education-section {
+                padding: 4rem 0 2rem;
+            }
+
+            .timeline-card {
+                padding: 1.25rem;
+                margin: 0 0.25rem 1.25rem;
+            }
+
+            .skill-category {
+                padding: 1.25rem;
+            }
+
+            .skill-category-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.75rem;
+            }
+
+            .skill-category-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+            }
+
+            .skill-tags {
+                justify-content: center;
+            }
+
+            .skill-tag {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .download-btn {
+                padding: 0.875rem 2rem;
+                font-size: 0.95rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem !important;
+            }
+        }
+
+        /* Móviles muy pequeños */
+        @media (max-width: 400px) {
+            .timeline-card {
+                padding: 1rem;
+            }
+
+            .skill-category {
+                padding: 1rem;
+            }
+
+            .skill-tag {
+                font-size: 0.75rem;
+                padding: 0.35rem 0.7rem;
+            }
+
+            .certification-card {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Orientación landscape en móviles */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .education-section {
+                padding: 5rem 0 2rem;
+                min-height: auto;
+            }
+        }
+
+        /* Mejoras de accesibilidad */
+        @media (prefers-reduced-motion: reduce) {
+
+            .timeline-card,
+            .skill-category,
+            .skill-tag,
+            .download-btn,
+            .certification-card {
+                transition: none;
+            }
+
+            .timeline-card:hover,
+            .skill-category:hover,
+            .certification-card:hover {
+                transform: none;
+            }
+
+            .education-section::before,
+            .education-particle {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand fw-bolder" href="index.html">Javier Muñoz</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="resume.html">Educación</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projects.html">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contacto</a></li>
+                    </ul>
                 </div>
-            </nav>
-            <!-- Page Content-->
-            <div class="container px-5 my-5">
-                <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Educación y certificados</span></h1>
+            </div>
+        </nav>
+
+        <!-- Education Section-->
+        <section class="education-section" style="padding-top: 100px;">
+            <div class="container px-4 px-lg-5">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1 class="section-title fw-bolder mb-3">
+                        <span class="text-gradient d-inline">Educación y Certificados</span>
+                    </h1>
+                    <p class="section-subtitle">Mi trayectoria formativa y experiencia profesional</p>
                 </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-11 col-xl-9 col-xxl-8">
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-11 col-xl-10">
                         <!-- Experience Section-->
-                        <section>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h2 class="text-primary fw-bolder mb-0">Experiencia</h2>
-                                <!-- Download resume button-->
-                                <!-- Note: Set the link href target to a PDF file within your project-->
-                                <a class="btn btn-primary px-4 py-3" href="#!">
-                                    <div class="d-inline-block bi bi-download me-2"></div>
+                        <section class="mb-5">
+                            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4">
+                                <h2 class="text-primary fw-bolder mb-3 mb-md-0">Experiencia Profesional</h2>
+                                <a class="download-btn" href="#!">
+                                    <i class="bi bi-download me-2"></i>
                                     Descargar Currículum
                                 </a>
                             </div>
+
                             <!-- Experience Card 1-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-primary fw-bolder mb-2">2024 - Present</div>
-                                                <div class="small fw-bolder">Web Developer</div>
-                                                <div class="small text-muted">Proyectos Propios</div>
-                                                <div class="small text-muted">Sevilla, Spain</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Desarrollando proyectos propios con tecnologías Frontend y Backend. <br><br> También aporto valor en mis tiempos libres a través de mi cuenta de TikTok, donde comparto conocimientos sobre desarrollo web y tecnologías relacionadas, alcanzando más de 4700 seguidores.</div></div>
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <span class="timeline-date">2024 - Presente</span>
+                                    <div class="timeline-content">
+                                        <h4 class="fw-bolder mb-1">Desarrollador Web</h4>
+                                        <p class="text-muted mb-2">Proyectos Propios | Sevilla, España</p>
                                     </div>
                                 </div>
+                                <div class="timeline-body">
+                                    <p class="mb-3">Desarrollando proyectos propios con tecnologías Frontend y Backend.
+                                    </p>
+                                    <p class="mb-0">También aporto valor en mis tiempos libres a través de mi cuenta de
+                                        TikTok, donde comparto conocimientos sobre desarrollo web y tecnologías
+                                        relacionadas, alcanzando más de 4700 seguidores.</p>
+                                </div>
                             </div>
+
                             <!-- Experience Card 2-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-primary fw-bolder mb-2">2021 - 2023</div>
-                                                <div class="small fw-bolder">Editor de Vídeos</div>
-                                                <div class="small text-muted">Fiverr International Ltd.</div>
-                                                <div class="small text-muted">Online service</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Colaboré con más de 14 clientes como freelancer en Fiverr, mejorando en un 30% los resultados esperados a través de la creación y optimización de contenido audiovisual para redes sociales y plataformas digitales. <br><br> Desarrollé habilidades clave en edición de videos, redacción, comunicación y gestión de tiempo, mientras coordinaba calendarios y campañas publicitarias. <br><br> Además, aseguré la entrega de materiales audiovisuales adaptados a las necesidades de cada cliente y plataforma.</div></div>
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <span class="timeline-date">2021 - 2023</span>
+                                    <div class="timeline-content">
+                                        <h4 class="fw-bolder mb-1">Editor de Vídeos</h4>
+                                        <p class="text-muted mb-2">Fiverr International Ltd. | Servicio Online</p>
                                     </div>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="mb-3">Colaboré con más de 14 clientes como freelancer en Fiverr, mejorando
+                                        en un 30% los resultados esperados a través de la creación y optimización de
+                                        contenido audiovisual para redes sociales y plataformas digitales.</p>
+                                    <p class="mb-3">Desarrollé habilidades clave en edición de videos, redacción,
+                                        comunicación y gestión de tiempo, mientras coordinaba calendarios y campañas
+                                        publicitarias.</p>
+                                    <p class="mb-0">Además, aseguré la entrega de materiales audiovisuales adaptados a
+                                        las necesidades de cada cliente y plataforma.</p>
                                 </div>
                             </div>
                         </section>
+
                         <!-- Education Section-->
-                        <section>
-                            <h2 class="text-secondary fw-bolder mb-4">Education</h2>
+                        <section class="mb-5">
+                            <h2 class="text-primary fw-bolder mb-4">Formación Académica</h2>
+
                             <!-- Education Card 1-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-secondary fw-bolder mb-2">2022 - actualidad</div>
-                                                <div class="mb-2">
-                                                    <div class="small fw-bolder">IES Velázquez</div>
-                                                    <div class="small text-muted">Sevilla, Spain</div>
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <span class="timeline-date">2022 - Actualidad</span>
+                                    <div class="timeline-content">
+                                        <h4 class="fw-bolder mb-1">Técnico Superior en Desarrollo de Aplicaciones Web
+                                        </h4>
+                                        <p class="text-muted mb-2">IES Velázquez | Sevilla, España</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="skills-grid">
+                                        <!-- Frontend Skills -->
+                                        <div class="skill-category">
+                                            <div class="skill-category-header">
+                                                <div class="skill-category-icon">
+                                                    <i class="bi bi-code-square"></i>
                                                 </div>
-                                                <div class="fst-italic">
-                                                    <div class="small text-muted">Técnico Superior (DAW)</div>
-                                                    <div class="small text-muted">Desarrollo de Aplicaciones Web</div>
-                                                </div>
+                                                <h5 class="fw-bolder mb-0">Frontend</h5>
+                                            </div>
+                                            <div class="skill-tags">
+                                                <span class="skill-tag">HTML5</span>
+                                                <span class="skill-tag">CSS3</span>
+                                                <span class="skill-tag">Bootstrap</span>
+                                                <span class="skill-tag">JavaScript (ES6+)</span>
+                                                <span class="skill-tag">Angular</span>
+                                                <span class="skill-tag">TypeScript</span>
+                                                <span class="skill-tag">Programación Reactiva</span>
                                             </div>
                                         </div>
-                                        <div class="col-lg-8"><div><b>Frontend:</b>
-                                            Dominio de tecnologías como HTML, CSS, Bootstrap y JavaScript (ES6+), con experiencia en frameworks avanzados como Angular (Standalone y por módulos). <br><br>He desarrollado interfaces dinámicas y responsivas utilizando TypeScript y programación reactiva, asegurando una excelente experiencia de usuario.
-                                            <br><br>
-                                            <b>Backend:</b>
-                                            Experiencia en el desarrollo de aplicaciones servidoras con PHP, Java POO y el manejo de APIs. <br><br>Familiarizado con bases de datos relacionales como MySQL, Oracle SQL y PostgreSQL, utilizando herramientas como phpMyAdmin y Oracle SQL Developer para su gestión. <br><br>Conocimientos en PL/SQL y programación procedural para optimizar consultas y procesos complejos.
-                                            <br><br>
-                                            <b>Herramientas y DevOps:</b>
-                                            Manejo de sistemas de control de versiones como Git y GitHub para colaboración eficiente en proyectos. <br><br>Experiencia en la virtualización con Docker y Docker Compose para la gestión de contenedores, así como en entornos Linux mediante línea de comandos. <br><br>Uso de herramientas IDE como IntelliJ IDEA, Visual Studio Code y Android Studio (con JAVA/XML) para el desarrollo de software multiplataforma, incluyendo aplicaciones móviles y juegos con Unity.</div></div>
+
+                                        <!-- Backend Skills -->
+                                        <div class="skill-category">
+                                            <div class="skill-category-header">
+                                                <div class="skill-category-icon">
+                                                    <i class="bi bi-server"></i>
+                                                </div>
+                                                <h5 class="fw-bolder mb-0">Backend</h5>
+                                            </div>
+                                            <div class="skill-tags">
+                                                <span class="skill-tag">PHP</span>
+                                                <span class="skill-tag">Java POO</span>
+                                                <span class="skill-tag">APIs REST</span>
+                                                <span class="skill-tag">MySQL</span>
+                                                <span class="skill-tag">Oracle SQL</span>
+                                                <span class="skill-tag">PostgreSQL</span>
+                                                <span class="skill-tag">PL/SQL</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- DevOps & Tools -->
+                                        <div class="skill-category">
+                                            <div class="skill-category-header">
+                                                <div class="skill-category-icon">
+                                                    <i class="bi bi-tools"></i>
+                                                </div>
+                                                <h5 class="fw-bolder mb-0">DevOps & Herramientas</h5>
+                                            </div>
+                                            <div class="skill-tags">
+                                                <span class="skill-tag">Git & GitHub</span>
+                                                <span class="skill-tag">Docker</span>
+                                                <span class="skill-tag">Docker Compose</span>
+                                                <span class="skill-tag">Linux</span>
+                                                <span class="skill-tag">IntelliJ IDEA</span>
+                                                <span class="skill-tag">VS Code</span>
+                                                <span class="skill-tag">Android Studio</span>
+                                                <span class="skill-tag">Unity</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            
                         </section>
-                        <!-- Divider-->
-                        <div class="pb-5"></div>
+
                         <!-- Skills Section-->
                         <section>
-                            <!-- Skillset Card-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <!-- Professional skills list-->
-                                    <div class="mb-5">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
+                            <div class="timeline-card">
+                                <div class="skills-grid">
+                                    <!-- Professional Skills -->
+                                    <div class="skill-category">
+                                        <div class="skill-category-header">
+                                            <div class="skill-category-icon">
+                                                <i class="bi bi-tools"></i>
+                                            </div>
+                                            <h5 class="fw-bolder mb-0">Habilidades Profesionales</h5>
                                         </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Full Stack Web Development</div></div>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">Desarrollo Full Stack</span>
+                                            <span class="skill-tag">Arquitectura de Software</span>
+                                            <span class="skill-tag">Desarrollo Web Responsive</span>
+                                            <span class="skill-tag">Optimización de Rendimiento</span>
+                                            <span class="skill-tag">Testing y Debugging</span>
                                         </div>
                                     </div>
 
-                                    <!-- Professional skills list-->
-                                    <div class="mb-5">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-award-fill"></i></div> 
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Soft Skills</span></h3>
+                                    <!-- Soft Skills -->
+                                    <div class="skill-category">
+                                        <div class="skill-category-header">
+                                            <div class="skill-category-icon">
+                                                <i class="bi bi-people"></i>
+                                            </div>
+                                            <h5 class="fw-bolder mb-0">Habilidades Personales</h5>
                                         </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Atención al Cliente</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Resolución de problemas</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Gestión del tiempo</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Comunicación efectiva</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Aprendizaje continuo</div></div>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">Atención al Cliente</span>
+                                            <span class="skill-tag">Resolución de Problemas</span>
+                                            <span class="skill-tag">Gestión del Tiempo</span>
+                                            <span class="skill-tag">Comunicación Efectiva</span>
+                                            <span class="skill-tag">Aprendizaje Continuo</span>
+                                            <span class="skill-tag">Trabajo en Equipo</span>
                                         </div>
                                     </div>
-                                    <!-- Languages list-->
-                                    <div class="mb-0">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
+
+                                    <!-- Languages & Frameworks -->
+                                    <div class="skill-category">
+                                        <div class="skill-category-header">
+                                            <div class="skill-category-icon">
+                                                <i class="bi bi-code-slash"></i>
+                                            </div>
+                                            <h5 class="fw-bolder mb-0">Lenguajes & Frameworks</h5>
                                         </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML & CSS</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">JavaScript (ES6+)</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">PHP & Laravel</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Java Orientado a Objetos</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">TypeScript</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Angular</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Bootstrap</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Oracle SQL & PL/SQL</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">phpMyAdmin</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Docker & Docker Compose</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SO Linux</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">VirtualBox</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Programación Reactiva</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Entre otros...</div></div>
+                                        <div class="skill-tags">
+                                            <span class="skill-tag">HTML & CSS</span>
+                                            <span class="skill-tag">JavaScript (ES6+)</span>
+                                            <span class="skill-tag">PHP & Laravel</span>
+                                            <span class="skill-tag">Java POO</span>
+                                            <span class="skill-tag">TypeScript</span>
+                                            <span class="skill-tag">Angular</span>
+                                            <span class="skill-tag">Bootstrap</span>
+                                            <span class="skill-tag">Oracle SQL</span>
+                                            <span class="skill-tag">PL/SQL</span>
+                                            <span class="skill-tag">Docker</span>
+                                            <span class="skill-tag">Linux</span>
                                         </div>
                                     </div>
                                 </div>
@@ -181,25 +838,68 @@
                     </div>
                 </div>
             </div>
-        </main>
-        <!-- Footer-->
-        <footer class="bg-white py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; www.javiermunozmayorga.com 2025</div></div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Política de privacidad</a>
+        </section>
+    </main>
+
+    <!-- Footer-->
+    <footer class="footer mt-auto">
+        <div class="container px-4 px-lg-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0">Copyright &copy; Javier Muñoz Mayorga 2025</div>
+                </div>
+                <div class="col-auto">
+                    <div class="footer-links">
+                        <a class="small text-decoration-none" href="#!">Política de Privacidad</a>
                         <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Términos y condiciones</a>
+                        <a class="small text-decoration-none" href="#!">Términos</a>
                         <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contactar</a>
+                        <a class="small text-decoration-none" href="contact.html">Contactar</a>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Animation for timeline cards
+        document.addEventListener('DOMContentLoaded', function () {
+            const timelineCards = document.querySelectorAll('.timeline-card');
+            timelineCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+
 </html>
