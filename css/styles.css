@@ -121,6 +121,14 @@ a {
     text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
 }
 
+.navbar-toggler {
+    background-color: #00fbac !important;
+}
+
+.text-muted{
+  color: white !important;
+}
+
 .navbar-brand::after {
     content: '';
     position: absolute;
